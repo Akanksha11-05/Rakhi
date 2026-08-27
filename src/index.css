@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  background: #fbf3ea;
+  color: #4a3b36;
+  font-family: "Poppins", "Noto Sans Devanagari", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100dvh;
+}
+
+/* Marathi text should render with generous line-height for Devanagari matras */
+.mr {
+  font-family: "Noto Sans Devanagari", "Poppins", sans-serif;
+  line-height: 1.9;
+}
+
+.font-hand {
+  font-family: "Caveat", cursive;
+}
+
+/* Soft grain/paper texture overlay */
+.paper-texture {
+  background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(74, 59, 54, 0.06) 1px,
+      transparent 0
+    );
+  background-size: 22px 22px;
+}
+
+/* Reusable rounded card w/ paper feel */
+.gift-card {
+  background: #fffdf9;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px -20px rgba(198, 93, 114, 0.35),
+    0 2px 8px rgba(74, 59, 54, 0.06);
+  border: 1px solid rgba(232, 137, 154, 0.18);
+}
+
+/* Rakhi thread divider - the site's signature motif */
+.rakhi-thread {
+  position: relative;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    #e8899a 0px,
+    #e8899a 8px,
+    transparent 8px,
+    transparent 14px
+  );
+  opacity: 0.55;
+}
+
+.rakhi-thread::before,
+.rakhi-thread::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background: #d9a94e;
+  transform: translateY(-50%);
+}
+.rakhi-thread::before {
+  left: -4px;
+}
+.rakhi-thread::after {
+  right: -4px;
+}
+
+::selection {
+  background: #f4c6ce;
+  color: #4a3b36;
+}
+
+/* Custom scrollbar - subtle */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e8b7c1;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+
+
+/* Floating Hearts Animation */
+@keyframes floatUp {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translate3d(var(--drift), -50vh, 0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(calc(var(--drift) * -1), -115vh, 0);
+    opacity: 0;
+  }
+}
+
+.animate-floatUp {
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+/* Sparkle Animation */
+@keyframes sparkle {
+  0% {
+    transform: scale(0.7) rotate(0deg);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.7) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
