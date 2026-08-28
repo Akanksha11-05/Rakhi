@@ -1,7 +1,12 @@
+
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Heart, Sparkles, ArrowRight } from "lucide-react";
 import { ThreadProgress } from "./Decor";
+
+// Video
+// Imported so it works correctly with Vite + GitHub Pages
+import memoryVideo from "../assets/memoryvideo.mp4";
 
 const LINES = [
   "Some moments are simply unforgettable... ❤️",
@@ -39,9 +44,7 @@ export default function PhotoReveal({ onNext }) {
         text-center
       "
     >
-      {/* =====================================================
-          BACKGROUND GLOW
-      ====================================================== */}
+      {/* BACKGROUND GLOW */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
           className="
@@ -85,9 +88,7 @@ export default function PhotoReveal({ onNext }) {
         />
       </div>
 
-      {/* =====================================================
-          PROGRESS
-      ====================================================== */}
+      {/* PROGRESS */}
       <div
         className="
           absolute
@@ -100,9 +101,7 @@ export default function PhotoReveal({ onNext }) {
         <ThreadProgress step={5} total={8} />
       </div>
 
-      {/* =====================================================
-          FLOATING SPARKLE
-      ====================================================== */}
+      {/* FLOATING SPARKLE */}
       <motion.div
         className="
           pointer-events-none
@@ -125,9 +124,7 @@ export default function PhotoReveal({ onNext }) {
         <Sparkles size={20} />
       </motion.div>
 
-      {/* =====================================================
-          FLOATING HEART
-      ====================================================== */}
+      {/* FLOATING HEART */}
       <motion.div
         className="
           pointer-events-none
@@ -149,9 +146,7 @@ export default function PhotoReveal({ onNext }) {
         <Heart size={18} fill="currentColor" />
       </motion.div>
 
-      {/* =====================================================
-          MAIN CONTENT
-      ====================================================== */}
+      {/* MAIN CONTENT */}
       <div
         className="
           relative
@@ -188,9 +183,7 @@ export default function PhotoReveal({ onNext }) {
           A little memory ❤️
         </motion.p>
 
-        {/* =====================================================
-            PREMIUM VIDEO CARD
-        ====================================================== */}
+        {/* PREMIUM VIDEO CARD */}
         <motion.div
           initial={{
             opacity: 0,
@@ -238,9 +231,7 @@ export default function PhotoReveal({ onNext }) {
             "
           />
 
-          {/* =================================================
-              VIDEO
-          ================================================== */}
+          {/* VIDEO */}
           <div
             className="
               relative
@@ -250,11 +241,12 @@ export default function PhotoReveal({ onNext }) {
             "
           >
             <video
-              src="/src/assets/memoryvideo.mp4"
+              src={memoryVideo}
               autoPlay
               muted
               loop
               playsInline
+              controls={false}
               className="
                 block
                 h-auto
@@ -355,9 +347,7 @@ export default function PhotoReveal({ onNext }) {
             </motion.div>
           </div>
 
-          {/* =================================================
-              VIDEO CAPTION
-          ================================================== */}
+          {/* VIDEO CAPTION */}
           <div className="px-2 pb-1 pt-3">
             <p className="font-hand text-xl text-rose-600">
               A little piece of us ✨
@@ -376,9 +366,7 @@ export default function PhotoReveal({ onNext }) {
           </div>
         </motion.div>
 
-        {/* =====================================================
-            TEXT REVEAL
-        ====================================================== */}
+        {/* TEXT REVEAL */}
         <div
           className="
             mt-7
@@ -419,9 +407,7 @@ export default function PhotoReveal({ onNext }) {
           ))}
         </div>
 
-        {/* =====================================================
-            CONTINUE BUTTON
-        ====================================================== */}
+        {/* CONTINUE BUTTON */}
         {visible >= LINES.length && (
           <motion.button
             initial={{
@@ -478,9 +464,7 @@ export default function PhotoReveal({ onNext }) {
           </motion.button>
         )}
 
-        {/* =====================================================
-            BOTTOM MESSAGE
-        ====================================================== */}
+        {/* BOTTOM MESSAGE */}
         {visible >= LINES.length && (
           <motion.p
             initial={{
@@ -506,3 +490,4 @@ export default function PhotoReveal({ onNext }) {
     </div>
   );
 }
+
