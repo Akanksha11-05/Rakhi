@@ -1,30 +1,37 @@
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Heart, Sparkles, ArrowRight } from "lucide-react";
 import { AmbientDecor, ThreadProgress } from "./Decor";
 
 // Photos
+// Images are imported so they work correctly with Vite + GitHub Pages
+import memory1 from "../assets/memory1.jpeg";
+import memory2 from "../assets/memory2.jpeg";
+import memory3 from "../assets/memory3.jpeg";
+import memory4 from "../assets/memory4.jpeg";
+
 const PHOTOS = [
   {
-    src: "/src/assets/memory1.jpeg",
+    src: memory1,
     caption: "Those beautiful childhood days 🌸",
     rotate: -6,
     position: "object-[center_18%]",
   },
   {
-    src: "/src/assets/memory2.jpeg",
+    src: memory2,
     caption: "Memories that always make me smile ❤️",
     rotate: 4,
     position: "object-center",
   },
   {
-    src: "/src/assets/memory3.jpeg",
+    src: memory3,
     caption: "Best Bro 🫶🏻",
     rotate: -3,
     position: "object-[center_18%]",
   },
   {
-    src: "/src/assets/memory4.jpeg",
+    src: memory4,
     caption: "Just us ❤️",
     rotate: 5,
     position: "object-center",
@@ -407,9 +414,6 @@ export default function Memories({ onNext }) {
                     object-cover
                     ${selected.position}
                   `}
-                  onError={(e) =>
-                    (e.currentTarget.style.display = "none")
-                  }
                 />
               </div>
 
@@ -439,3 +443,4 @@ export default function Memories({ onNext }) {
     </div>
   );
 }
+
